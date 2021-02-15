@@ -1,7 +1,7 @@
 package com.jh.lovespace.controller;
 
-import com.jh.lovespace.dal.entity.User;
-import com.jh.lovespace.dal.mapper.UserMapper;
+import com.jh.lovespace.dal.entity.UserInfo;
+import com.jh.lovespace.dal.mapper.UserInfoMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class HelloController {
     @Autowired
-    UserMapper userMapper;
+    UserInfoMapper userInfoMapper;
     @GetMapping("/hello")
     public String hello(){
         log.info("我是info");
@@ -26,8 +26,8 @@ public class HelloController {
     }
 
     @GetMapping("/test")
-    public User test(){
-        User user = userMapper.selectByPrimaryKey(1);
+    public UserInfo test(){
+        UserInfo user = userInfoMapper.selectByPrimaryKey(1);
         return user;
     }
 }
