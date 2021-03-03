@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 /**
  * @author jiangjuchao
  * @create 2020/8/31
@@ -27,6 +29,8 @@ public class HelloController {
 
     @GetMapping("/test")
     public UserInfo test(){
+        UserInfo build = UserInfo.builder().userName("nana").userPassword("11").userPhone("22").userEmail("e").createTime(new Date()).modifyTime(new Date()).build();
+        userInfoMapper.insert(build);
         UserInfo user = userInfoMapper.selectByPrimaryKey(1);
         return user;
     }
